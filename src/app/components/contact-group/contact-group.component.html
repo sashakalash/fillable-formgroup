@@ -1,0 +1,45 @@
+<form [formGroup]="formGroup">
+  <mat-form-field appearance="fill">
+    <mat-label>Prefix</mat-label>
+    <mat-select formControlName="code"
+>
+      <mat-optgroup *ngFor="let prefixGroup of prefixGroups"
+                    [label]="prefixGroup.name"
+                    [disabled]="prefixGroup.disabled">
+        <mat-option *ngFor="let number of prefixGroup.numbers"
+                    [value]="number.code">
+          +{{ number.code }}
+        </mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width"
+                  appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input type="tel"
+           matInput
+           formControlName="phone"
+           placeholder="000-000-00-00"
+           mask="(000) 000-00-00">
+    <!-- <mat-error
+               *ngIf="formGroup?.get('phone')?.invalid && formGroup.get('phone').hasError('required')">
+      Required
+    </mat-error>
+    <mat-error *ngIf="
+             formGroup.get('phone')?.invalid &&
+             !formGroup.get('phone').hasError('required') &&
+             formGroup.get('phone').hasError('prefixRequired')">
+      Prefix required</mat-error> -->
+  </mat-form-field>
+
+  <app-status-control-component formControlName="status">
+  </app-status-control-component>
+
+  <button mat-mini-fab
+          color="accent"
+          aria-label="Remove phone"
+          (click)="remove()">
+    <mat-icon>remove</mat-icon>
+  </button>
+</form>

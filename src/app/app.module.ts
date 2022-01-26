@@ -11,13 +11,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { StatusControlComponent } from './components/status-control/status-control.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ContactGroupComponent } from './components/contact-group/contact-group.component'
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 @NgModule({
   declarations: [
     AppComponent,
-    StatusControlComponent
+    StatusControlComponent,
+    ContactGroupComponent
   ],
   imports: [
     BrowserModule,
