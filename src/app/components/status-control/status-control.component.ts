@@ -1,7 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, forwardRef, OnInit, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-const enum StatusEnum {
+export enum StatusEnum {
   FAVORITE = 'FAVORITE',
   WORK = 'WORK',
   SMS = 'SMS'
@@ -13,7 +13,7 @@ const enum StatusEnum {
   styleUrls: ['./status-control.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: StatusControlComponent,
+    useExisting: forwardRef(() => StatusControlComponent),
     multi: true
   }]
 })
@@ -58,5 +58,6 @@ export class StatusControlComponent implements OnInit, ControlValueAccessor {
   public onClick() {
     this.counter = this.counter + 1 === this.statuses.length ? 0 : this.counter + 1;
     this.writeValue(this.status);
+    this.onChange(this.status);
   }
 }

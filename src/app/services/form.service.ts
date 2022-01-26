@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +16,19 @@ export class FormService {
     })
   }
 
-  public createContactControl(): FormGroup {
+  public createContactGroup(): FormGroup {
     return this.fb.group({
       code: ['', Validators.required],
       phone: ['', [Validators.required, this.prefixExistValidator()]],
       status: ['', Validators.required]
+    })
+  }
+
+  public createContactControl(): FormControl {
+    return this.fb.control({
+      code: '',
+      phone: '',
+      status: ''
     })
   }
 

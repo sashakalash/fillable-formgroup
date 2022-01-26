@@ -37,46 +37,6 @@
              let-control
              let-index="idx">
   <mat-label>{{ index + 1}}</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>Prefix</mat-label>
-    <mat-select [formControl]="control.get('code')" (selectionChange)="vs.validate(control.get('phone'))">
-      <mat-optgroup *ngFor="let prefixGroup of prefixGroups"
-                    [label]="prefixGroup.name"
-                    [disabled]="prefixGroup.disabled">
-        <mat-option *ngFor="let number of prefixGroup.numbers"
-                    [value]="number.code">
-          +{{ number.code }}
-        </mat-option>
-      </mat-optgroup>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width"
-                  appearance="fill">
-    <mat-label>Phone</mat-label>
-    <input type="tel"
-           matInput
-           [formControl]="control.get('phone')"
-           placeholder="000-000-00-00"
-           mask="(000) 000-00-00">
-    <mat-error
-               *ngIf="control.get('phone')?.invalid && control.get('phone').hasError('required')">
-      Required
-    </mat-error>
-    <mat-error *ngIf="
-               control.get('phone')?.invalid &&
-               !control.get('phone').hasError('required') &&
-               control.get('phone').hasError('prefixRequired')">
-      Prefix required</mat-error>
-  </mat-form-field>
-
-  <app-status-control-component [formControl]="control.get('status')">
-  </app-status-control-component>
-
-  <button mat-mini-fab
-          color="accent"
-          aria-label="Remove phone"
-          (click)="removeContact(index)">
-    <mat-icon>remove</mat-icon>
-  </button>
+  <app-contact-group [formControl]="control"
+                     (removeContact)="removeContact(index)"></app-contact-group>
 </ng-template>
