@@ -17,8 +17,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formService.createForm();
-    console.log(this.form)
-    this.form.valueChanges.subscribe(res => console.log(res))
   }
 
   public addContact(): void {

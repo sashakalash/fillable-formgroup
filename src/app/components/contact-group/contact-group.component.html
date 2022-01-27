@@ -22,15 +22,15 @@
            formControlName="phone"
            placeholder="000-000-00-00"
            mask="(000) 000-00-00">
-    <!-- <mat-error
-               *ngIf="formGroup?.get('phone')?.invalid && formGroup.get('phone').hasError('required')">
+    <mat-error
+               *ngIf="formGroup?.get('phone')?.invalid && formGroup?.get('phone')?.hasError('required')">
       Required
     </mat-error>
     <mat-error *ngIf="
-             formGroup.get('phone')?.invalid &&
-             !formGroup.get('phone').hasError('required') &&
-             formGroup.get('phone').hasError('prefixRequired')">
-      Prefix required</mat-error> -->
+             formGroup?.get('phone')?.invalid &&
+             !formGroup?.get('phone')?.hasError('required') &&
+             formGroup?.get('phone')?.hasError('prefixRequired')">
+      Prefix required</mat-error>
   </mat-form-field>
 
   <app-status-control-component formControlName="status">

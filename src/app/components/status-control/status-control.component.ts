@@ -1,4 +1,4 @@
-import { Component, ElementRef, forwardRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, forwardRef, OnInit, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export enum StatusEnum {
@@ -22,7 +22,7 @@ export class StatusControlComponent implements OnInit, ControlValueAccessor {
   @ViewChild('counterInput') counterInput: ElementRef;
 
   public onChange: any;
-  public value: StatusEnum;
+  public value: StatusEnum = StatusEnum.FAVORITE;
   private counter: number = 0;
   private statuses: StatusEnum[] = [
     StatusEnum.FAVORITE,

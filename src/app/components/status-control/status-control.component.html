@@ -2,7 +2,7 @@
         color="warn"
         aria-label="status-button"
         (click)="onClick()">
-  <div [ngSwitch]="status">
+  <div [ngSwitch]="value">
     <div *ngSwitchCase="FAVORITE" class="icon-wrapper">
       <mat-icon matTooltip="Favorite">favorite</mat-icon>
     </div>
@@ -13,7 +13,7 @@
       <mat-icon matTooltip="SMS">send</mat-icon>
     </div>
     <div *ngSwitchDefault class="icon-wrapper">
-      <mat-icon matTooltip="Unknown">help</mat-icon>
+      <mat-icon matTooltip="Click to set phone number status">help</mat-icon>
     </div>
   </div>
 </button>
