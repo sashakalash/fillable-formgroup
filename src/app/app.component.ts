@@ -6,6 +6,7 @@ import { FormService } from './services/form.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit {
   public form: FormGroup;
 
